@@ -2,3 +2,8 @@ embed = discord.Embed(title="DIVULGA MEU SITE", url="https://github.com/ThiagoCC
 embed.set_author(name="Thiago Comelli",url="https://github.com/ThiagoCComelli", icon_url = "https://avatars3.githubusercontent.com/u/51216389?s=460&v=4")
 embed.set_thumbnail(url="https://avatars3.githubusercontent.com/u/51216389?s=460&v=4")
 embed.add_field(name="Só trabalho bom", value="é?", inline=False)
+
+
+
+
+l
