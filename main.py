@@ -30,9 +30,4 @@ async def on_member_join(member):
             await client.send_message("Bem Vindo {}".format(member.mention))
 
 
-
-
-
-
-
 client.run('NjQ5MDQzMDM4ODE0ODYzMzYw.Xd3EDg.2aDPqofdtZFcFx9mZkraDp6iMAU')
