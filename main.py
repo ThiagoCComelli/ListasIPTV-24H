@@ -1,6 +1,6 @@
 import discord
 import asyncio
-from PIL import ImageTk, Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 import json
 import os
