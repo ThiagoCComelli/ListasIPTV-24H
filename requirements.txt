@@ -1,7 +1,8 @@
 git+https://github.com/Rapptz/discord.py
 PyNaCl==1.3.0
 pandas
-Pillow
-PillowImage
+json
+Pillow==6.2.1
+PillowImage==1.1.5
 dnspython==1.16.0
 async-timeout==3.0.1
