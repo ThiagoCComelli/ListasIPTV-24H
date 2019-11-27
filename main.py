@@ -3,9 +3,6 @@ import asyncio
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 import json
-import os
-
-os.chdir(r'C:\Users\thiag\PycharmProjects\BotDiscord')
 
 client = commands.Bot(command_prefix=".")
 
