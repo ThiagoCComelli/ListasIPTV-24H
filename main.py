@@ -11,26 +11,26 @@ async def on_ready():
     print("Ready!")
 
 
-@client.event
-async def on_member_join(member):
-    with open("dados.json", "r") as f:
-        users = json.load(f)
-
-    await update_data(users,member)
-
-    with open("dados.json", "w") as f:
-        json.dump(users,f)
-
-
-
-async def update_data(users,user,qtde):
-    if not user.id in users:
-        users[user.id] = {}
-        users[user.id]['messages'] = 1
-
-    else:
-        print("oi")
-        users[user.id]['messages'] += qtde
+# @client.event
+# async def on_member_join(member):
+#     with open("dados.json", "r") as f:
+#         users = json.load(f)
+#
+#     await update_data(users,member)
+#
+#     with open("dados.json", "w") as f:
+#         json.dump(users,f)
+#
+#
+#
+# async def update_data(users,user,qtde):
+#     if not user.id in users:
+#         users[user.id] = {}
+#         users[user.id]['messages'] = 1
+#
+#     else:
+#         print("oi")
+#         users[user.id]['messages'] += qtde
 
 
 @client.event
@@ -42,13 +42,13 @@ async def on_message(message):
 
 
 
-    with open("dados.json", "r") as f:
-        users = json.load(f)
-
-    await update_data(users,message.author,1)
-
-    with open("dados.json", "w") as f:
-        json.dump(users,f)
+    # with open("dados.json", "r") as f:
+    #     users = json.load(f)
+    #
+    # await update_data(users,message.author,1)
+    #
+    # with open("dados.json", "w") as f:
+    #     json.dump(users,f)
 
 
 
