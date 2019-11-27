@@ -1,0 +1,7 @@
+heroku login
+git init
+heroku git:remote -a discord-botimage
+git add .
+git commit -am "agora vai"
+git push heroku master
+
