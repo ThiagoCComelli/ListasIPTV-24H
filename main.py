@@ -28,7 +28,7 @@ async def on_message(message):
 
     if str(message.channel) in channels:
         if message.content == "!hello":
-            await message.channel.send("Hi", file=discord.File('images.jpg'))
+            await message.channel.send("Hi", file=discord.File('images/images.jpg'))
 
         elif message.content == "!divulga":
             embed = discord.Embed(title="DIVULGA MEU SITE", url="https://github.com/ThiagoCComelli",
