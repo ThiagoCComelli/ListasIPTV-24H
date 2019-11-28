@@ -6,9 +6,9 @@ import database
 from database import *
 from random import randint
 
-cluester = MongoClient("mongodb+srv://thiago:1234@cluster0-jhejj.gcp.mongodb.net/test?retryWrites=true&w=majority")
-db = cluester['test']
-collection = db
+# cluester = MongoClient("mongodb+srv://thiago:x@cluster0-jhejj.gcp.mongodb.net/test?retryWrites=true&w=majority")
+# db = cluester['test']
+# collection = db
 
 
 client = commands.Bot(command_prefix=".")

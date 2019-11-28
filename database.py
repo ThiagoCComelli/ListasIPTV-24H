@@ -1,7 +1,7 @@
 import pymongo
 from pymongo import MongoClient
 
-cluester = MongoClient("mongodb+srv://thiago:1234@cluster0-jhejj.gcp.mongodb.net/test?retryWrites=true&w=majority")
+cluester = MongoClient("mongodb+srv://thiago:x@cluster0-jhejj.gcp.mongodb.net/test?retryWrites=true&w=majority")
 db = cluester['discord']
 collection = db['discord-botimage']
 
