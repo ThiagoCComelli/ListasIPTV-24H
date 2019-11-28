@@ -2,7 +2,6 @@ import discord
 import asyncio
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
-import json
 
 client = commands.Bot(command_prefix=".")
 

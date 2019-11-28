@@ -1,7 +1,6 @@
 git+https://github.com/Rapptz/discord.py
 PyNaCl==1.3.0
 pandas
-json
 Pillow
 PillowImage
 dnspython==1.16.0
