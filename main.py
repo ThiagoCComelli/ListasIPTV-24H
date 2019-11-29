@@ -6,10 +6,6 @@ import database
 from database import *
 from random import randint
 
-# cluester = MongoClient("mongodb+srv://thiago:x@cluster0-jhejj.gcp.mongodb.net/test?retryWrites=true&w=majority")
-# db = cluester['test']
-# collection = db
-
 
 client = commands.Bot(command_prefix=".")
 
@@ -41,7 +37,7 @@ async def on_message(message):
 
         elif message.content.startswith("!gerador") == True:
             palavras = (message.content).split(" ")
-            if len(palavras) == 1:
+            if len(palavras) <= 4:
                 await message.channel.send("Falta argumentos. Ex: !gerador 100 30 20 'Hello World!'")
             else:
                 palavra = str(palavras[4:])
@@ -62,6 +58,6 @@ def criaFrase(lista):
 
 
 
-client.run('NjQ5MDQzMDM4ODE0ODYzMzYw.XeBOiQ.cWYLjxstpg9NA1YGxUoIzysgcSg')
+client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XeF2SA.RS13KX3YmXfAm-NRS1Yd2ar8_pU')
 
 
