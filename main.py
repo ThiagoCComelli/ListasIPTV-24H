@@ -83,6 +83,6 @@ def criaFrase(lista):
 
 
 
-client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XeF2SA.RS13KX3YmXfAm-NRS1Yd2ar8_pU')
+client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XeK2iA.I2VFYSi2-Devs16d8clc8Ql7BUo')
 
 
