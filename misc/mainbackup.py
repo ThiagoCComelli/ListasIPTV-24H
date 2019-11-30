@@ -18,38 +18,13 @@ async def on_ready():
 async def on_message(message):
     id = client.get_guild(145551479292428288)
     channels = ["bot"]
-    valid_users = ["THIAGO#6785"]
+    # valid_users = ["THIAGO#6785"]
 
-    update(str(message.author),int(message.author.id))
+    update(str(message.author))
 
     if str(message.channel) in channels:
         if message.content == "!hello":
             await message.channel.send("Hi", file=discord.File('images/fuinha.jpg'))
-
-        elif message.content == "!money":
-            await message.channel.send("<@{}>: money: R$ {:.2f}".format(str(message.author.id),moneycheck(str(message.author))))
-
-        elif message.content == "!help":
-            await message.channel.send("```css\nCOMANDOS DOT BOT\n!help :.           .: Show commands\n!hello :.          .: Hi\n!gerador :.        .: Generate images\n!level :.          .: Show level\n!levelup :.        .: Up your level\n!money :.          .: Show money ```")
-
-        elif message.content == "!level":
-            await message.channel.send("<@{}>: level {}".format(str(message.author.id),levelcheck(str(message.author))))
-
-        elif message.content.startswith("!set") == True and str(message.author) in valid_users:
-            palavras = (str(message.content)).split(" ")
-            alvo = int((palavras[1])[2:-1])
-            acao = str(palavras[2])
-            qtde = int(palavras[3])
-            if set(alvo,acao,qtde) == True:
-                await message.channel.send("Operação bem sucedida!")
-            else:
-                await message.channel.send("Falha na operação!")
-
-        elif message.content == "!levelup":
-            if levelup(str(message.author)) == False:
-                await message.channel.send("Dinheiro insuficiente <@{}>".format(str(message.author.id)))
-            else:
-                await message.channel.send("Level up com sucesso <@{}>".format(str(message.author.id)))
 
         elif message.content == "!divulga":
             embed = discord.Embed(title="DIVULGA MEU SITE", url="https://github.com/ThiagoCComelli",
