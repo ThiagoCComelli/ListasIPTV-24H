@@ -6,13 +6,12 @@ import database
 from database import *
 from random import randint
 
-
 client = commands.Bot(command_prefix=".")
 
 @client.event
 async def on_ready():
     print("Ready!")
-
+    await client.change_presence(activity = discord.Game(name='!help'))
 
 @client.event
 async def on_message(message):
@@ -30,12 +29,25 @@ async def on_message(message):
             await message.channel.send("<@{}>: money: R$ {:.2f}".format(int(message.author.id),moneycheck(int(message.author.id))))
 
         elif message.content == "!help":
-            await message.channel.send("```css\nCOMANDOS DOT BOT\n!help :.           .: Show commands\n!hello :.          .: Hi\n!gerador :.        .: Generate images\n!level :.          .: Show level\n!levelup :.        .: Up your level\n!money :.          .: Show money ```")
+            await message.channel.send("```css\nCOMANDOS DOT BOT\n!help :.           .: Show commands\n!hello :.          .: Hi\n!gerador :.        .: Generate images\n!level :.          .: Show level\n!levelup :.        .: Up your level\n!money :.          .: Show money\n"
+                                       "!privilege :.      .: Show your privileges\n!give and !set :.  .: Only for SuperUsers```")
 
         elif message.content == "!level":
             await message.channel.send("<@{}>: level {}".format(int(message.author.id),levelcheck(int(message.author.id))))
 
-        elif message.content.startswith("!set") == True and str(message.author) in valid_users:
+        elif message.content == "!privilege":
+            if checkPrivileges(int(message.author.id)):
+                vai = "SuperUser"
+            else: vai = "Normal"
+            await message.channel.send("<@{}>: privilege {}".format(int(message.author.id),vai))
+
+        elif message.content.startswith("!give") and ((str(message.author) in valid_users) or checkPrivileges(int(message.author.id))):
+            palavras = (str(message.content)).split(" ")
+            alvo = int((palavras[1])[2:-1])
+            acao = int(palavras[2])
+            setSuperUser(alvo,acao)
+
+        elif message.content.startswith("!set") == True and ((str(message.author) in valid_users) or checkPrivileges(int(message.author.id))):
             palavras = (str(message.content)).split(" ")
             alvo = int((palavras[1])[2:-1])
             acao = str(palavras[2])

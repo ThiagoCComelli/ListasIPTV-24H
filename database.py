@@ -9,7 +9,21 @@ def update(author,id):
     if collection.find_one({'_author':author}):
         collection.update_one({'_author': author}, {'$inc': {'message': 1,'money':round(random.uniform(0.5,1.0),1)}})
     else:
-        collection.insert_one({'_author':author,'_id':id,'level':0,'message':1,'money':0,'money':round(random.uniform(0.5,1.0),1)})
+        collection.insert_one({'_author':author,'_id':id,'level':0,'message':1,'money':0,'money':round(random.uniform(0.5,1.0),1),'privileges':0})
+
+def checkPrivileges(id):
+    res = collection.find({'_id': id})
+    if collection.find({'_id': id}):
+        for i in res:
+            if i['privileges'] == 1:
+                return True
+            else: return False
+
+def setSuperUser(id,acao):
+    if acao in [0,1]:
+        res = collection.find({'_id': id})
+        if collection.find({'_id': id}):
+            collection.update_one({'_id':id},{'$set':{'privileges':acao}})
 
 def levelcheck(id):
     res = collection.find({'_id': id})
