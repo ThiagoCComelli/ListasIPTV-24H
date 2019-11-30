@@ -29,7 +29,7 @@ def levelup(id):
                 collection.update_one({'_id': id}, {'$inc': {'level': 1}})
                 return True
             elif i['level'] != 0 and int(i['money']) >= int(i['level'])**2:
-                collection.update_one({'_id': id}, {'$inc': {'level': 1,'money':-(int(i['level'])**2)}})
+                collection.update_one({'_id': id}, {'$inc': {'level': 1,'money':(-(int(i['level'])**2))}})
                 return True
             else:
                 return False

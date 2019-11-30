@@ -27,13 +27,13 @@ async def on_message(message):
             await message.channel.send("Hi", file=discord.File('images/fuinha.jpg'))
 
         elif message.content == "!money":
-            await message.channel.send("<@{}>: money: R$ {:.2f}".format(str(message.author.id),moneycheck(str(message.author))))
+            await message.channel.send("<@{}>: money: R$ {:.2f}".format(int(message.author.id),moneycheck(int(message.author.id))))
 
         elif message.content == "!help":
             await message.channel.send("```css\nCOMANDOS DOT BOT\n!help :.           .: Show commands\n!hello :.          .: Hi\n!gerador :.        .: Generate images\n!level :.          .: Show level\n!levelup :.        .: Up your level\n!money :.          .: Show money ```")
 
         elif message.content == "!level":
-            await message.channel.send("<@{}>: level {}".format(str(message.author.id),levelcheck(str(message.author))))
+            await message.channel.send("<@{}>: level {}".format(int(message.author.id),levelcheck(int(message.author.id))))
 
         elif message.content.startswith("!set") == True and str(message.author) in valid_users:
             palavras = (str(message.content)).split(" ")
@@ -46,7 +46,7 @@ async def on_message(message):
                 await message.channel.send("Falha na operação!")
 
         elif message.content == "!levelup":
-            if levelup(str(message.author)) == False:
+            if levelup(int(message.author.id)) == False:
                 await message.channel.send("Dinheiro insuficiente <@{}>".format(str(message.author.id)))
             else:
                 await message.channel.send("Level up com sucesso <@{}>".format(str(message.author.id)))
