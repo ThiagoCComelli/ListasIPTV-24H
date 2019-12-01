@@ -25,12 +25,18 @@ async def on_message(message):
         if message.content == "!hello":
             await message.channel.send("Hi", file=discord.File('images/fuinha.jpg'))
 
+        elif message.content == "!daily":
+            if daily(int(message.author.id)) == True:
+                await message.channel.send("<@{}>: money +R$ 200.00".format(int(message.author.id)))
+            else:
+                await message.channel.send("<@{}>: Tempo de recarga insuficiente! Espere mais: {}".format(int(message.author.id),daily(int(message.author.id))))
+
         elif message.content == "!money":
             await message.channel.send("<@{}>: money: R$ {:.2f}".format(int(message.author.id),moneycheck(int(message.author.id))))
 
         elif message.content == "!help":
             await message.channel.send("```css\nCOMANDOS DOT BOT\n!help :.           .: Show commands\n!hello :.          .: Hi\n!gerador :.        .: Generate images\n!level :.          .: Show level\n!levelup :.        .: Up your level\n!money :.          .: Show money\n"
-                                       "!privilege :.      .: Show your privileges\n!give and !set :.  .: Only for SuperUsers```")
+                                       "!privilege :.      .: Show your privileges\n!daily :.          .: Free daily money\n!give and !set :.  .: Only for SuperUsers```")
 
         elif message.content == "!level":
             await message.channel.send("<@{}>: level {}".format(int(message.author.id),levelcheck(int(message.author.id))))
