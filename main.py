@@ -101,6 +101,6 @@ def criaFrase(lista):
 
 
 
-client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XeK6cQ.KRZ5ka1pV8jRpJbBZpg0niUAv2s')
+client.run('xxx')
 
 
