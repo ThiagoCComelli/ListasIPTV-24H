@@ -6,6 +6,8 @@ import time
 
 def pegaSite(siteEmail_):
 	try:
+		siteEmail_.get("https://www.fakemail.net/")
+
 		emails = siteEmail_.find_elements_by_class_name('from')
 
 		while len(emails) < 2:
@@ -32,12 +34,15 @@ def setup():
 	chrome_options.add_argument("--no-sandbox")
 
 	siteEmail = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
-	siteFlash = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	# siteFlash = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 
 	siteEmail.get("https://www.fakemail.net/")
-	siteFlash.get("https://teste.flashiptv.co/")
+	# siteFlash.get("https://teste.flashiptv.co/")
 
 	email = siteEmail.find_element_by_xpath('//*[@id="email"]').text
+
+	siteEmail.get("https://teste.flashiptv.co/")
+
 	FlashBotarEmail = siteFlash.find_element_by_xpath('//*[@id="formulario_teste"]/div[2]/input')
 	FlashBotaNome = siteFlash.find_element_by_xpath('//*[@id="formulario_teste"]/div[1]/input')
 	FlashBotaFone = siteFlash.find_element_by_xpath('//*[@id="phone_number"]')
@@ -54,7 +59,6 @@ def setup():
 	permissao = siteFlash.find_element_by_xpath('//*[@id="swal2-title"]').text
 
 	if(permissao == "Teste gerado com sucesso"):
-		siteFlash.quit()
 		return pegaSite(siteEmail)
 	else:
 		siteFlash.quit()
