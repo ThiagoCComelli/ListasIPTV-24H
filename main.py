@@ -17,7 +17,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    id = client.get_guild(145551479292428288)
+    id = client.get_guild("145551479292428288")
     channels = ["bot"]
     valid_users = ["THIAGO#6785"]
 
@@ -41,7 +41,7 @@ async def on_message(message):
 
         elif message.content == "!help":
             await message.channel.send("```css\nCOMANDOS DOT BOT\n!help :.           .: Show commands\n!hello :.          .: Hi\n!gerador :.        .: Generate images\n!level :.          .: Show level\n!levelup :.        .: Up your level\n!money :.          .: Show money\n"
-                                       "!privilege :.      .: Show your privileges\n!daily :.          .: Free daily money\n!give and !set :.  .: Only for SuperUsers```")
+                                       "!privilege :.      .: Show your privileges\n!daily :.          .: Free daily money\n!give and !set :.  .: Only for SuperUsers\n!iptv :.           .: To get your IPTV list```")
 
         elif message.content == "!level":
             await message.channel.send("<@{}>: level {}".format(int(message.author.id),levelcheck(int(message.author.id))))
@@ -106,6 +106,6 @@ def criaFrase(lista):
 
 
 
-client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XpmqFQ.fa6ozlrMWtqI8uNnKDzO4YJRYY0')
+client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XpnkeA.dCEprZ0X_flENo07Y-SbuknGYg4')
 
 
