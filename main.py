@@ -3,6 +3,8 @@ import asyncio
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 import database
+import iptv
+from iptv import *
 from database import *
 from random import randint
 
@@ -24,6 +26,9 @@ async def on_message(message):
     if str(message.channel) in channels:
         if message.content == "!hello":
             await message.channel.send("Hi", file=discord.File('images/fuinha.jpg'))
+
+        elif message.content == "!iptv":
+            await message.channel.send(setup())
 
         elif message.content == "!daily":
             if daily(int(message.author.id)) == True:
@@ -101,6 +106,6 @@ def criaFrase(lista):
 
 
 
-client.run('xxx')
+client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XpmqFQ.fa6ozlrMWtqI8uNnKDzO4YJRYY0')
 
 
