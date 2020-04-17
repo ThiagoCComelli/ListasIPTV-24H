@@ -5,26 +5,24 @@ import random
 import time
 
 def pegaSite(siteEmail_):
-	try:
-		siteEmail_.get("https://www.fakemail.net/")
+	
+	siteEmail_.get("https://www.fakemail.net/")
 
+	emails = siteEmail_.find_elements_by_class_name('from')
+
+	while len(emails) < 2:
+		time.sleep(5)
 		emails = siteEmail_.find_elements_by_class_name('from')
+		pass
 
-		while len(emails) < 2:
-			time.sleep(5)
-			emails = siteEmail_.find_elements_by_class_name('from')
-			pass
+	emails[0].click()
 
-		emails[0].click()
+	siteEmail_.switch_to.frame('iframeMail')
+	site = siteEmail_.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/center/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr[1]/td[2]/p/a').text
 
-		siteEmail_.switch_to.frame('iframeMail')
-		site = siteEmail_.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/center/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr[1]/td[2]/p/a').text
-
-		print(site)
-		siteEmail_.quit()
-		return site
-	except:
-		return "Falha para acessar o email! Tente novamente mais tarde."
+	print(site)
+	siteEmail_.quit()
+	return site
 
 def setup():
 	chrome_options = webdriver.ChromeOptions()
