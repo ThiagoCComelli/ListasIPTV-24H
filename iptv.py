@@ -43,11 +43,11 @@ def setup():
 
 	siteEmail.get("https://teste.flashiptv.co/")
 
-	FlashBotarEmail = siteFlash.find_element_by_xpath('//*[@id="formulario_teste"]/div[2]/input')
-	FlashBotaNome = siteFlash.find_element_by_xpath('//*[@id="formulario_teste"]/div[1]/input')
-	FlashBotaFone = siteFlash.find_element_by_xpath('//*[@id="phone_number"]')
-	FlashBotaPlano = siteFlash.find_element_by_xpath('//*[@id="formulario_teste"]/div[4]/select/option[2]')
-	FlashLogin = siteFlash.find_element_by_xpath('//*[@id="gerar_teste"]')
+	FlashBotarEmail = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[2]/input')
+	FlashBotaNome = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[1]/input')
+	FlashBotaFone = siteEmail.find_element_by_xpath('//*[@id="phone_number"]')
+	FlashBotaPlano = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[4]/select/option[2]')
+	FlashLogin = siteEmail.find_element_by_xpath('//*[@id="gerar_teste"]')
 	FlashBotaNome.send_keys("Thiago Comelli")
 	FlashBotarEmail.send_keys(email)
 	FlashBotaFone.send_keys(str(random.randint(10000000000,99999999999)))
@@ -56,12 +56,11 @@ def setup():
 
 	time.sleep(5)
 
-	permissao = siteFlash.find_element_by_xpath('//*[@id="swal2-title"]').text
+	permissao = siteEmail.find_element_by_xpath('//*[@id="swal2-title"]').text
 
 	if(permissao == "Teste gerado com sucesso"):
 		return pegaSite(siteEmail)
 	else:
-		siteFlash.quit()
 		siteEmail.quit()
 		return "Falha para criar a conta IPTV! Tente novamente mais tarde."
 
