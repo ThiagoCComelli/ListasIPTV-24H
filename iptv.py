@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import os
 import random
 import time
 
@@ -24,8 +25,14 @@ def pegaSite(siteEmail_):
 		return "Falha para acessar o email! Tente novamente mais tarde."
 
 def setup():
-	siteEmail = webdriver.Firefox(executable_path='./geckodriver')
-	siteFlash = webdriver.Firefox(executable_path='./geckodriver')
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_options.add_argument("--no-sandbox")
+
+	siteEmail = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	siteFlash = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 
 	siteEmail.get("https://www.fakemail.net/")
 	siteFlash.get("https://teste.flashiptv.co/")
