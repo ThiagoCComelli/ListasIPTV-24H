@@ -15,12 +15,11 @@ def pegaSite(siteEmail_):
 		emails = siteEmail_.find_elements_by_class_name('from')
 		pass
 
-	emails[0].click()
+	siteEmail_.get("https://www.fakemail.net/window/id/2")
 
 	siteEmail_.switch_to.frame('iframeMail')
 	site = siteEmail_.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/center/table/tbody/tr/td/table/tbody/tr[3]/td[2]/table/tbody/tr[1]/td/table/tbody/tr[1]/td[2]/p/a').text
 
-	print(site)
 	siteEmail_.quit()
 	return site
 
