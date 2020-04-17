@@ -24,8 +24,8 @@ def pegaSite(siteEmail_):
 		return "Falha para acessar o email! Tente novamente mais tarde."
 
 def setup():
-	siteEmail = webdriver.Firefox()
-	siteFlash = webdriver.Firefox()
+	siteEmail = webdriver.Firefox(executable_path='geckodriver')
+	siteFlash = webdriver.Firefox(executable_path='geckodriver')
 
 	siteEmail.get("https://www.fakemail.net/")
 	siteFlash.get("https://teste.flashiptv.co/")
