@@ -28,7 +28,13 @@ async def on_message(message):
             await message.channel.send("Hi", file=discord.File('images/fuinha.jpg'))
 
         elif message.content == "!iptv":
-            await message.channel.send(setup())
+            await message.channel.send("<@{}>: Sua lista esta sendo gerada!".format(int(message.author.id)))
+            vai = setup()
+            if(vai != "Falha para criar ao acessar o email! Tente novamente mais tarde." or vai != "Falha para criar a conta IPTV! Tente novamente mais tarde."):
+                await message.channel.send("<@{}>: {}".format(int(message.author.id),vai))
+            else:
+                await message.channel.send("<@{}>: Lista enviada por mensagem no privado!".format(int(message.author.id)))
+                await message.author.send("Sua lista: {}".format(vai))
 
         elif message.content == "!daily":
             if daily(int(message.author.id)) == True:
