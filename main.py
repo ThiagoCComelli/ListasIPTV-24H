@@ -30,7 +30,7 @@ async def on_message(message):
         elif message.content == "!iptv":
             await message.channel.send("<@{}>: Sua lista esta sendo gerada!".format(int(message.author.id)))
             vai = setup()
-            if(vai != "Falha para criar ao acessar o email! Tente novamente mais tarde." or vai != "Falha para criar a conta IPTV! Tente novamente mais tarde."):
+            if(vai == "Falha para criar ao acessar o email! Tente novamente mais tarde." or vai == "Falha para criar a conta IPTV! Tente novamente mais tarde."):
                 await message.channel.send("<@{}>: {}".format(int(message.author.id),vai))
             else:
                 await message.channel.send("<@{}>: Lista enviada por mensagem no privado!".format(int(message.author.id)))
