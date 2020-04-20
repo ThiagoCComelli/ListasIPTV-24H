@@ -47,7 +47,7 @@ def setup():
 	FlashBotaFone = siteEmail.find_element_by_xpath('//*[@id="phone_number"]')
 	FlashBotaPlano = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[4]/select/option[2]')
 	FlashLogin = siteEmail.find_element_by_xpath('//*[@id="gerar_teste"]')
-	FlashBotaNome.send_keys("Thiago Comelli")
+	FlashBotaNome.send_keys("Joao Paulo")
 	FlashBotarEmail.send_keys(email)
 	FlashBotaFone.send_keys(str(random.randint(10000000000,99999999999)))
 	FlashBotaPlano.click()
