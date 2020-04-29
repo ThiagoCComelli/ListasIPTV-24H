@@ -32,7 +32,7 @@ def setup():
 	chrome_options.add_argument("--disable-dev-shm-usage")
 	chrome_options.add_argument("--no-sandbox")
 
-	siteEmail = webdriver.webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	siteEmail = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 	# siteFlash = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 
 	siteEmail.get("https://www.fakemail.net/")
