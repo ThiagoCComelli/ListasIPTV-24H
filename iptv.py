@@ -26,13 +26,13 @@ def pegaSite(siteEmail_):
 		return "Falha para criar ao acessar o email! Tente novamente mais tarde."
 
 def setup():
-	chrome_options = webdriver.ChromeOptions()
-	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-	chrome_options.add_argument("--headless")
-	chrome_options.add_argument("--disable-dev-shm-usage")
-	chrome_options.add_argument("--no-sandbox")
+	# chrome_options = webdriver.ChromeOptions()
+	# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	# chrome_options.add_argument("--headless")
+	# chrome_options.add_argument("--disable-dev-shm-usage")
+	# chrome_options.add_argument("--no-sandbox")
 
-	siteEmail = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	siteEmail = webdriver.Firefox()
 	# siteFlash = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 
 	siteEmail.get("https://www.fakemail.net/")
@@ -40,24 +40,20 @@ def setup():
 
 	email = siteEmail.find_element_by_xpath('//*[@id="email"]').text
 
-	siteEmail.get("https://teste.flashiptv.co/")
+	siteEmail.get("https://teste.flashiptv.me/")
 
-	FlashBotarEmail = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[2]/input')
-	FlashBotaNome = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[1]/input')
-	FlashBotaFone = siteEmail.find_element_by_xpath('//*[@id="phone_number"]')
-	FlashBotaPlano = siteEmail.find_element_by_xpath('//*[@id="formulario_teste"]/div[4]/select/option[2]')
-	FlashLogin = siteEmail.find_element_by_xpath('//*[@id="gerar_teste"]')
-	FlashBotaNome.send_keys("Joao Paulo")
+	FlashBotarEmail = siteEmail.find_element_by_xpath('/html/body/div/div/div[2]/form/div[1]/input')
+	FlashBotaPlano = siteEmail.find_element_by_xpath('/html/body/div/div/div[2]/form/div[2]/select/option[2]')
+	FlashLogin = siteEmail.find_element_by_xpath('/html/body/div/div/div[2]/form/div[3]/div[2]/button')
 	FlashBotarEmail.send_keys(email)
-	FlashBotaFone.send_keys(str(random.randint(10000000000,99999999999)))
 	FlashBotaPlano.click()
 	FlashLogin.submit()
 
 	time.sleep(5)
 
-	permissao = siteEmail.find_element_by_xpath('//*[@id="swal2-title"]').text
+	permissao = siteEmail.find_element_by_xpath('/html/body/div/div/div[2]').text
 
-	if(permissao == "Teste gerado com sucesso"):
+	if(permissao == "Teste criado com sucesso, verifique seu e-mail!"):
 		return pegaSite(siteEmail)
 	else:
 		siteEmail.quit()
