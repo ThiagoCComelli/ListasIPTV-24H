@@ -17,7 +17,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    id = client.get_guild("145551479292428288")
+    id = client.get_guild("*")
     channels = ["bot"]
     valid_users = ["THIAGO#6785"]
 
@@ -112,6 +112,6 @@ def criaFrase(lista):
 
 
 
-client.run('NjUwMDYwMzIwNTQ2NjE5NDU3.XpnkeA.dCEprZ0X_flENo07Y-SbuknGYg4')
+client.run('*')
 
 

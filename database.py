@@ -4,7 +4,7 @@ import random
 import datetime
 import time
 
-cluester = MongoClient("mongodb+srv://thiago:1234@cluster0-jhejj.gcp.mongodb.net/test?retryWrites=true&w=majority")
+cluester = MongoClient("*")
 db = cluester['discord']
 collection = db['discord-botimage']
 
